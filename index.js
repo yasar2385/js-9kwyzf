@@ -1,5 +1,20 @@
 // Import stylesheets
 import './style.css';
+//
+const calculator = (function () {
+    function add(a, b) {
+        return a + b;
+    }
+
+    function multiply(a, b) {
+        return a * b;
+    }
+    return {
+        add: add,
+        multiply: multiply
+    }
+})();
+
 
 //JavaScript closures
 function greeting() {
@@ -175,6 +190,5 @@ let email = null;
 });
 //console.log(email);
 
-var num1 = 10,
-  num2 = 10;
+var num1 = 10, num2 = 10;
 //console.log(num1 >= num2);
