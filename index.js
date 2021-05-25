@@ -1,26 +1,57 @@
 // Import stylesheets
 import './style.css';
-//
-const calculator = (function () {
-    function add(a, b) {
-        return a + b;
-    }
 
-    function multiply(a, b) {
-        return a * b;
-    }
-    return {
-        add: add,
-        multiply: multiply
-    }
+function Yasar(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+
+  this.getFullName = function() {
+    return this.firstName + ' ' + this.lastName;
+  };
+}
+let yasar = new Yasar('Yasar', 'Arafat');
+//console.log(yasar.getFullName());
+
+const behavior = {
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+};
+
+function createPerson(firstName, lastName) {
+  let person = Object.create(behavior);
+  person.firstName = firstName;
+  person.lastName = lastName;  
+  return person;
+}
+let john = createPerson('John', 'Doe'),
+  jane = createPerson('Jane', 'Doe');
+  console.log(john);
+  console.log(john,john.getFullName());
+console.log(jane,jane.getFullName());
+
+
+const calculator = (function() {
+  function add(a, b) {
+    return a + b;
+  }
+
+  function multiply(a, b) {
+    return a * b;
+  }
+  return {
+    add: add,
+    multiply: multiply
+  };
 })();
-
+let add = calculator.add(10, 20); // add in app.js
+//console.log(add); // 30
 
 //JavaScript closures
 function greeting() {
   var message = 'Hi';
   function sayHi() {
-    console.log(message);
+    //console.log(message);
   }
   return sayHi;
 }
@@ -39,7 +70,7 @@ console.log(sayHello('John')); // Hello John
 //JavaScript closures in a loop
 for (var index = 1; index <= 3; index++) {
   setTimeout(function() {
-    console.log('after ' + index + ' second(s):' + index);
+    //console.log('after ' + index + ' second(s):' + index);
   }, index * 1000);
 }
 
@@ -54,7 +85,7 @@ for (var index = 1; index <= 3; index++) {
 //2) Using let keyword in ES6
 for (let index = 1; index <= 3; index++) {
   setTimeout(function() {
-    console.log('After ' + index + ' second(s):' + index);
+    //console.log('After ' + index + ' second(s):' + index);
   }, index * 1000);
 }
 
@@ -102,7 +133,7 @@ function myFunction() {
 var person1 = {
   name: 'John Doe',
   getName: function() {
-    console.log(this.name);
+    //console.log(this.name);
   }
 };
 let f = person1.getName;
@@ -190,5 +221,6 @@ let email = null;
 });
 //console.log(email);
 
-var num1 = 10, num2 = 10;
+var num1 = 10,
+  num2 = 10;
 //console.log(num1 >= num2);
